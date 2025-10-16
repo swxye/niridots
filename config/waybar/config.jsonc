@@ -1,0 +1,173 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin": 3,
+    "spacing": 6,
+    "height": 3,
+    "reload_config_on_change": true,
+    "reload_style_on_change": true,
+    "modules-left": [
+        "niri/workspaces",
+        "custom/notification",
+        "niri/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "idle_inhibitor",
+        "power-profiles-daemon",
+        "wireplumber",
+        "wireplumber#source",
+        "backlight",
+        "bluetooth",
+        "network",
+        "battery"
+    ],
+
+    "niri/workspaces": {
+        "format": "{value}",
+        "on-click": "activate",
+        "sort-by-number": true
+    },
+
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "",
+            "none": "󰂜",
+            "dnd-notification": "!",
+            "dnd-none": "",
+            "inhibited-notification": "󰂜!",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "!",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "niri/window": {
+        "format": "{title} - {app_id}"
+    },
+
+    "clock": {
+        "format": "{:%H:%M:%S}",
+	    "format-alt": "{:%a, %Y %b %e}",
+        "interval": 1
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "power-profiles-daemon": {
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "power-saver": "",
+            "balanced": "",
+            "performance": ""
+        }
+    },
+
+    "wireplumber": {
+        "format": "{volume}%",
+        "format-extreme": "  {volume}%",
+        "format-loud": " {volume}%",
+        "format-quiet": " {volume}%",
+        "format-silent": " {volume}%",
+        "format-muted": "",
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "max-volume": 120,
+        "states": {
+            "extreme": 101,
+            "loud": 70,
+            "quiet": 20,
+            "silent": 0
+        },
+        "scroll-step": 5
+    },
+
+    "wireplumber#source": {
+        "format": " {volume}%",
+        "format-extreme": "  {volume}%",
+        "format-muted": "",       
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+        "max-volume": 120,
+        "states": {
+            "extreme": 101,
+            "loud": 70,
+            "quiet": 20,
+            "silent": 0
+        },
+        "node-type": "Audio/Source",
+        "scroll-step": 5
+    },
+
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            ""
+        ],
+        "states": {
+            "bright": 70,
+            "mid": 30,
+            "dim": 0
+        },
+        "device": "intel_backlight",
+        "scroll-step": 5
+    },
+
+    "bluetooth": {
+	    "format": " {status}",
+        "format-on": " On",
+        "format-off": "󰂲 Off",
+	    "format-disabled": "󰂲 Disabled",
+	    "format-connected": " {num_connections} Connected",
+	    "tooltip-format": "{controller_alias}\t{controller_address}",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+    },
+
+    "network": {
+        "format": "{ifname}",
+        "format-alt": " Censored",
+        "format-wifi": " {essid} {signalStrength}%",
+        "format-ethernet": " {ipaddr}/{cidr}",
+        "format-disconnected": "! Disconnected",
+        "on-click-right": "kitty zsh -ic nmtui",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format-wifi": " {essid} {signalStrength}%",
+        "tooltip-format-ethernet": " {ifname}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 1
+    },
+
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "{icon} {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["", "", "", "", ""],
+        "interval": 1,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        }
+    }
+}
