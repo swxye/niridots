@@ -1,0 +1,244 @@
+//           _      _                     _____                        __  _           
+//    ____  (_)____(_)  _________  ____  / __(_)___ ___  ___________ _/ /_(_)___  ____ 
+//   / __ \/ / ___/ /  / ___/ __ \/ __ \/ /_/ / __ `/ / / / ___/ __ `/ __/ / __ \/ __ \
+//  / / / / / /  / /  / /__/ /_/ / / / / __/ / /_/ / /_/ / /  / /_/ / /_/ / /_/ / / / /
+// /_/ /_/_/_/  /_/   \___/\____/_/ /_/_/ /_/\__, /\__,_/_/   \__,_/\__/_/\____/_/ /_/ 
+//                                          /____/                                     
+//
+// Config by: https://github.com/swxye/niridots.git
+
+
+
+//    ____               __ 
+//   /  _/__  ___  __ __/ /_
+//  _/ // _ \/ _ \/ // / __/
+// /___/_//_/ .__/\_,_/\__/ 
+//         /_/              
+
+input {
+	keyboard {
+		xkb {
+			layout "us"
+		}
+		numlock
+	}
+
+	touchpad {
+		tap
+		natural-scroll
+        accel-speed 0.2
+        accel-profile "flat"
+		tap-button-map "left-right-middle"
+	}
+
+	disable-power-key-handling
+	warp-mouse-to-focus
+	focus-follows-mouse max-scroll-amount="90%"
+}
+
+
+
+//   _____        __                 
+//  / ___/__ ___ / /___ _________ ___
+// / (_ / -_|_-</ __/ // / __/ -_|_-<
+// \___/\__/___/\__/\_,_/_/  \__/___/
+//
+                                  
+gestures {
+	hot-corners {
+		off
+	}
+}
+
+
+
+//   ____       __            __ 
+//  / __ \__ __/ /____  __ __/ /_
+// / /_/ / // / __/ _ \/ // / __/
+// \____/\_,_/\__/ .__/\_,_/\__/ 
+//              /_/              
+
+output "eDP-1" {
+	mode "1920x1080@60.027"
+	scale 1.25
+	transform "normal"
+	position x=0 y=0
+}
+
+
+
+//    __                       __ 
+//   / /  ___ ___ _____  __ __/ /_
+//  / /__/ _ `/ // / _ \/ // / __/
+// /____/\_,_/\_, /\___/\_,_/\__/ 
+//           /___/                
+
+layout {
+	gaps 4
+	center-focused-column "never"
+	default-column-display "normal"
+	background-color "#000000"
+
+	preset-column-widths {
+		proportion 0.25
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+		proportion 0.75
+	}
+
+	default-column-width { proportion 0.5; }
+
+	preset-window-heights {
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+	}
+
+	focus-ring {
+		off
+	}
+
+	border {
+		width 3
+
+		active-gradient from="rgb(203, 166, 247)" to="rgb(137, 180, 250)" angle=60
+		inactive-color "rgba(255, 255, 255, 0.2)"
+		urgent-gradient from="rgb(243, 139, 168)" to="rgb(250, 179, 135)" angle=60
+	}
+}
+
+
+
+//    __  ____             ____                          
+//   /  |/  (_)__ _______ / / /__ ____  ___ ___  __ _____
+//  / /|_/ / (_-</ __/ -_) / / _ `/ _ \/ -_) _ \/ // (_-<
+// /_/  /_/_/___/\__/\__/_/_/\_,_/_//_/\__/\___/\_,_/___/
+//
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot-%Y-%m-%d-%H-%M-%S.png"
+
+overview {
+    backdrop-color "rgb(0, 0, 0)"
+}
+
+spawn-at-startup "waybar"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swayidle"
+spawn-at-startup "swaync"
+spawn-at-startup "~/.config/niri/scripts/wallpaper-randomizer.sh"
+
+window-rule {
+    geometry-corner-radius 6
+
+    clip-to-geometry true
+}
+
+environment {
+	EDITOR "nvim"
+	VISUAL "nvim"
+	QT_QPA_PLATFORM "wayland"
+	MOZ_ENABLE_WAYLAND "1"
+	ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
+
+
+//    ___  _         __  
+//   / _ )(_)__  ___/ /__
+//  / _  / / _ \/ _  (_-<
+// /____/_/_//_/\_,_/___/
+//
+
+binds {
+	Mod+Return		  repeat=false hotkey-overlay-title="Open terminal: kitty"		 { spawn "kitty" "--hold" "fastfetch" "-c" "screenfetch.jsonc" "--logo-type" "small"; }
+	Mod+R			  repeat=false hotkey-overlay-title="Run an application: fuzzel"  { spawn "fuzzel"; }
+	Ctrl+Shift+Escape repeat=false hotkey-overlay-title="Open system monitor: btop++" { spawn "kitty" "zsh" "-ic" "btop"; }
+
+	Print { screenshot; }
+	Super+Print { screenshot-screen; }
+	Ctrl+Print { screenshot-window; }
+
+	Mod+Shift+Slash hotkey-overlay-title="Show keybinds" { show-hotkey-overlay; }
+
+	Mod+O repeat=false hotkey-overlay-title="Toggle overview" { toggle-overview; }
+
+	Mod+Q repeat=false hotkey-overlay-title="Close a window" { close-window; }
+
+    Mod+Left hotkey-overlay-title="Focus the window/column (applies with all navigation keys):" { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up	  { focus-window-up; }
+    Mod+Right hotkey-overlay-title=null { focus-column-right; }
+
+    Mod+Shift+Left hotkey-overlay-title="Move the window/column (applies with all navigation keys):" { move-column-left; }
+    Mod+Shift+Down	{ move-window-down; }
+    Mod+Shift+Up	{ move-window-up; }
+    Mod+Shift+Right hotkey-overlay-title=null { move-column-right; }
+
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+Home hotkey-overlay-title="Focus the first column" { focus-column-first; }
+    Mod+End hotkey-overlay-title="Focus the last column"   { focus-column-last; }
+
+    Mod+Ctrl+Home hotkey-overlay-title="Move the focused column the front of the workspace" { move-column-to-first; }
+    Mod+Ctrl+End hotkey-overlay-title="Move the focused column the back of the workspace"   { move-column-to-last; }
+
+    Mod+Comma  hotkey-overlay-title="Consume window into the focused column" { consume-window-into-column; }
+	Mod+Period hotkey-overlay-title="Eject window from the focused column"	 { expel-window-from-column; }
+
+    Mod+T		hotkey-overlay-title="Switch between the column width presets"	{ switch-preset-column-width; }
+    Mod+Shift+T hotkey-overlay-title="Switch between the window height presets" { switch-preset-window-height; }
+    Mod+Ctrl+T	hotkey-overlay-title="Reset the window height"					{ reset-window-height; }
+
+    Mod+F		hotkey-overlay-title="Maximize the focused column width" { maximize-column; }
+    Mod+Shift+F hotkey-overlay-title="Fullscreen the window"			 { fullscreen-window; }
+
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+1 hotkey-overlay-title="Focus the workspace (applies to all numbers)" { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+
+    Mod+Ctrl+1 hotkey-overlay-title="Move the focused column to the workspace (applies to all numbers)" { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+    Mod+Shift+1 hotkey-overlay-title="Move the focused window to the workspace (applies to all numbers)" { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
+
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+	XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+	XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+	XF86AudioMute		 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+	XF86AudioMicMute	 allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    XF86MonBrightnessUp	  allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+5%"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "5%-"; }
+}

@@ -1,0 +1,22 @@
+@define-color dark_black   rgb(%%color0.rgb%%);
+@define-color dark_red     rgb(%%color1.rgb%%);
+@define-color dark_green   rgb(%%color2.rgb%%);
+@define-color dark_yellow  rgb(%%color3.rgb%%);
+@define-color dark_blue    rgb(%%color4.rgb%%);
+@define-color dark_magenta rgb(%%color5.rgb%%);
+@define-color dark_cyan    rgb(%%color6.rgb%%);
+@define-color dark_white   rgb(%%color7.rgb%%);
+
+@define-color light_black   rgb(%%color8.rgb%%);
+@define-color light_red     rgb(%%color9.rgb%%);
+@define-color light_green   rgb(%%color10.rgb%%);
+@define-color light_yellow  rgb(%%color11.rgb%%);
+@define-color light_blue    rgb(%%color12.rgb%%);
+@define-color light_magenta rgb(%%color13.rgb%%);
+@define-color light_cyan    rgb(%%color14.rgb%%);
+@define-color light_white   rgb(%%color15.rgb%%);
+
+@define-color background rgb(%%background.rgb%%);
+@define-color foreground rgb(%%foreground.rgb%%);
+@define-color cursor     rgb(%%cursor.rgb%%);
+@define-color border     rgb(%%border.rgb%%);

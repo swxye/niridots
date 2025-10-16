@@ -1,0 +1,3 @@
+timeout 420 'brightnessctl --class=backlight set $(( $( brightnessctl --class=backlight g ) / 2 ))' resume 'brightnessctl --class=backlight set $(( $( brightnessctl --class=backlight g ) * 2 ))'
+timeout 480 'systemctl sleep'
+before-sleep 'hyprlock'
