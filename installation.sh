@@ -37,7 +37,12 @@ sudo pacman -S doas rsync eza ly niri xdg-desktop-portal-{gtk,gnome} pipewire{,-
 
 echo "${GREEN}::${NC} ${BOLD}Creating the doas config...${NC}"
 sudo touch /etc/doas.conf
-sudo echo -e "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\n" > /etc/doas.conf
+touch /tmp/doas.conf.tmp
+
+echo -e "permit persist setenv {PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin} :wheel\n" > /tmp/doas.conf.tmp
+
+sudo rsync -aiv /tmp/doas.conf.tmp /etc/doas.conf
+
 sudo chown -c root:root /etc/doas.conf
 sudo chmod -c 0400 /etc/doas.conf
 
