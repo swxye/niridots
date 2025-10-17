@@ -73,8 +73,8 @@ rsync -aiv ./config/.zshrc ~/.zshrc
 
 echo "${GREEN}::${NC} ${BOLD}Installing wallpapers...${NC}"
 cd
-git clone https://github.com/swxye/niridots-wallpapers
-cd ~/niri-wallpapers
+git clone https://github.com/swxye/niridots-wallpapers.git
+cd ~/niridots-wallpapers
 mv ./Wallpapers ~
 cd
 rm -r ~/niridots-wallpapers
