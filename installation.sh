@@ -59,6 +59,8 @@ rsync -aiv --delete ./config/config/paru/ ~/.config/paru/
 rsync -aiv --delete ./config/config/swaync/ ~/.config/swaync/
 rsync -aiv --delete ./config/config/waybar/ ~/.config/waybar/
 
+rsync -aiv ./config/.zshrc ~/.zshrc
+
 echo "${GREEN}::${NC} ${BOLD}Installing wallpapers...${NC}"
 cd
 git clone https://github.com/swxye/niridots-wallpapers
