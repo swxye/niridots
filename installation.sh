@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 GREEN=$'\e[0;32m'
 YELLOW=$'\e[0;33m'
 
@@ -43,6 +45,9 @@ echo "${GREEN}::${NC} ${BOLD}Installing the AUR packages required by niridots...
 paru -S paru-bin doasedit-alternative hellwal
 
 echo "${GREEN}::${NC} ${BOLD}Installing niridots...${NC}"
+
+mkdir ~/.config/ || true
+
 cd ~/niridots
 
 sudo rsync -aiv ./config/ly/config.ini /etc/ly/config.ini
