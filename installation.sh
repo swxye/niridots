@@ -35,17 +35,16 @@ git clone https://aur.archlinux.org/paru-bin.git
 cd ~/paru-bin
 makepkg -si
 cd
-rm -r ~/paru-bin
 
 echo "${GREEN}::${NC} Installing the packages required by niridots..."
-doas pacman -S ly niri xdg-desktop-portal-{gtk,gnome} pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} brightnessctl kitty btop fuzzel hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono noto-fonts{,-{cjk,emoji,extra}} alsa-utils
+sudo pacman -S ly niri xdg-desktop-portal-{gtk,gnome} pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} brightnessctl kitty btop fuzzel hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono noto-fonts{,-{cjk,emoji,extra}} alsa-utils
 
 echo "${GREEN}::${NC} Installing the AUR packages required by niridots..."
 paru -S paru-bin doasedit-alternative hellwal
 
 echo "${GREEN}::${NC} Installing niridots..."
 cd ~/niridots
-doas cat ./config/ly/config.ini > /etc/ly/config.ini
+sudo cat ./config/ly/config.ini > /etc/ly/config.ini
 cp -rf ./config/.swayidle ~
 cp -rf ./config/config/* ~/.config
 cp -rf ./config/.zshrc ~
@@ -59,7 +58,7 @@ cd
 rm -r ~/niridots-wallpapers
 
 echo "${GREEN}::${NC} Enabling services..."
-doas systemctl enable bluetooth ly
+sudo systemctl enable bluetooth ly
 systemctl --user enable pipewire pipewire-pulse wireplumber 
 
 echo "${GREEN}::${NC} Configuring themes..."
