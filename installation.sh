@@ -31,6 +31,7 @@ git clone https://aur.archlinux.org/paru-bin.git
 cd ~/paru-bin
 makepkg -si
 cd
+rm -r ~/paru-bin
 
 echo "${GREEN}::${NC} ${BOLD}Installing the packages required by niridots...${NC}"
 sudo pacman -S --needed doas rsync eza ly niri nvim fastfetch xdg-desktop-portal-{gtk,gnome} pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
