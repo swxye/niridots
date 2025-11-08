@@ -135,14 +135,15 @@
     },
 
     "bluetooth": {
-	    "format": " {status}",
+        "format": " {status}",
         "format-on": " On",
         "format-off": "󰂲 Off",
-	    "format-disabled": "󰂲 Disabled",
-	    "format-connected": " {num_connections} Connected",
-	    "tooltip-format": "{controller_alias}\t{controller_address}",
+	"format-disabled": "󰂲 Disabled",
+	"format-connected": " {num_connections} Connected",
+	"on-click": "blueman-manager",
+	"tooltip-format": "{controller_alias}\t{controller_address}",
         "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-	    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
     },
 
     "network": {

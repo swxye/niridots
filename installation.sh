@@ -33,7 +33,7 @@ makepkg -si
 cd
 
 echo "${GREEN}::${NC} ${BOLD}Installing the packages required by niridots...${NC}"
-sudo pacman -S doas rsync eza ly niri fastfetch xdg-desktop-portal-{gtk,gnome} pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
+sudo pacman -S --needed doas rsync eza ly niri nvim fastfetch xdg-desktop-portal-{gtk,gnome} pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
 
 echo "${GREEN}::${NC} ${BOLD}Creating the doas config...${NC}"
 sudo touch /etc/doas.conf
@@ -47,7 +47,7 @@ sudo chown -c root:root /etc/doas.conf
 sudo chmod -c 0400 /etc/doas.conf
 
 echo "${GREEN}::${NC} ${BOLD}Installing the AUR packages required by niridots...${NC}"
-paru -S paru-bin doasedit-alternative hellwal
+paru -S --needed paru-bin doasedit-alternative hellwal
 
 echo "${GREEN}::${NC} ${BOLD}Installing niridots...${NC}"
 
@@ -65,18 +65,19 @@ rsync -aiv --delete ./config/config/hellwal/ ~/.config/hellwal/
 rsync -aiv --delete ./config/config/hypr/ ~/.config/hypr/
 rsync -aiv --delete ./config/config/kitty/ ~/.config/kitty/
 rsync -aiv --delete ./config/config/niri/ ~/.config/niri/
+rsync -aiv --delete ./config/config/nvim/ ~/.config/nvim/
 rsync -aiv --delete ./config/config/paru/ ~/.config/paru/
 rsync -aiv --delete ./config/config/swaync/ ~/.config/swaync/
 rsync -aiv --delete ./config/config/waybar/ ~/.config/waybar/
 
 rsync -aiv ./config/.zshrc ~/.zshrc
+rsync -aiv ./config/.zshenv ~/.zshenv
 
 echo "${GREEN}::${NC} ${BOLD}Installing wallpapers...${NC}"
+echo "${GREEN}::${NC} ${BOLD}Syncing wallpapers...${NC}"
 cd
 git clone https://github.com/swxye/niridots-wallpapers.git
-cd ~/niridots-wallpapers
-mv ./Wallpapers ~
-cd
+rsync -aiv --delete ~/niridots-wallpapers/Wallpapers/ ~/Wallpapers/
 rm -r ~/niridots-wallpapers
 
 echo "${GREEN}::${NC} ${BOLD}Enabling services...${NC}"
