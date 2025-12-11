@@ -34,7 +34,7 @@ cd
 rm -r ~/paru-bin
 
 echo "${GREEN}::${NC} ${BOLD}Installing the packages required by niridots...${NC}"
-sudo pacman -S --needed doas rsync eza ly niri nvim fastfetch xdg-desktop-portal-{gtk,gnome} qt6ct pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
+sudo pacman -S --needed doas rsync eza ly niri nvim fastfetch xdg-desktop-portal-{gtk,gnome} qt6ct breeze gnome-themes-extra pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
 
 echo "${GREEN}::${NC} ${BOLD}Creating the doas config...${NC}"
 sudo touch /etc/doas.conf
@@ -68,11 +68,11 @@ rsync -aiv --delete ./config/config/kitty/ ~/.config/kitty/
 rsync -aiv --delete ./config/config/niri/ ~/.config/niri/
 rsync -aiv --delete ./config/config/nvim/ ~/.config/nvim/
 rsync -aiv --delete ./config/config/paru/ ~/.config/paru/
+rsync -aiv --delete ./config/config/qt6ct/ ~/.config/qt6ct/
 rsync -aiv --delete ./config/config/swaync/ ~/.config/swaync/
 rsync -aiv --delete ./config/config/waybar/ ~/.config/waybar/
 
 rsync -aiv ./config/.zshrc ~/.zshrc
-rsync -aiv ./config/.zshenv ~/.zshenv
 
 echo "${GREEN}::${NC} ${BOLD}Installing wallpapers...${NC}"
 echo "${GREEN}::${NC} ${BOLD}Syncing wallpapers...${NC}"
