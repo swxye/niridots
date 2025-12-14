@@ -25,13 +25,13 @@ fi
 
 sudo pacman -Syu
 
-echo "${GREEN}::${NC} ${BOLD}Installing Paru...${NC}"
+echo "${GREEN}::${NC} ${BOLD}Installing yay...${NC}"
 cd
-git clone https://aur.archlinux.org/paru-bin.git
-cd ~/paru-bin
+git clone https://aur.archlinux.org/yay-bin.git
+cd ~/yay-bin
 makepkg -si
 cd
-rm -r ~/paru-bin
+rm -r ~/yay-bin
 
 echo "${GREEN}::${NC} ${BOLD}Installing the packages required by niridots...${NC}"
 sudo pacman -S --needed doas rsync eza ly niri nvim fastfetch xdg-desktop-portal-{gtk,gnome} qt6ct breeze gnome-themes-extra pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
@@ -48,7 +48,7 @@ sudo chown -c root:root /etc/doas.conf
 sudo chmod -c 0400 /etc/doas.conf
 
 echo "${GREEN}::${NC} ${BOLD}Installing the AUR packages required by niridots...${NC}"
-paru -S --needed paru-bin doasedit-alternative hellwal
+yay -S --needed doasedit-alternative hellwal
 
 echo "${GREEN}::${NC} ${BOLD}Installing niridots...${NC}"
 
