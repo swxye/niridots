@@ -67,7 +67,6 @@ rsync -aiv --delete ./config/config/hypr/ ~/.config/hypr/
 rsync -aiv --delete ./config/config/kitty/ ~/.config/kitty/
 rsync -aiv --delete ./config/config/niri/ ~/.config/niri/
 rsync -aiv --delete ./config/config/nvim/ ~/.config/nvim/
-rsync -aiv --delete ./config/config/paru/ ~/.config/paru/
 rsync -aiv --delete ./config/config/qt6ct/ ~/.config/qt6ct/
 rsync -aiv --delete ./config/config/swaync/ ~/.config/swaync/
 rsync -aiv --delete ./config/config/waybar/ ~/.config/waybar/
@@ -82,7 +81,7 @@ rsync -aiv --delete ~/niridots-wallpapers/Wallpapers/ ~/Wallpapers/
 rm -r ~/niridots-wallpapers
 
 echo "${GREEN}::${NC} ${BOLD}Enabling services...${NC}"
-sudo systemctl enable bluetooth ly
+sudo systemctl enable bluetooth ly@tty1
 systemctl --user enable pipewire pipewire-pulse wireplumber 
 
 echo "${GREEN}::${NC} ${BOLD}Configuring themes...${NC}"
