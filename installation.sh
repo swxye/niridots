@@ -29,6 +29,7 @@ echo "${GREEN}::${NC} ${BOLD}Installing yay...${NC}"
 cd
 git clone https://aur.archlinux.org/yay-bin.git
 cd ~/yay-bin
+sudo pacman -S less
 makepkg -si
 cd
 rm -r ~/yay-bin
