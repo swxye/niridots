@@ -67,7 +67,7 @@ rsync -aiv --delete ./config/config/hellwal/ ~/.config/hellwal/
 rsync -aiv --delete ./config/config/hypr/ ~/.config/hypr/
 rsync -aiv --delete ./config/config/kitty/ ~/.config/kitty/
 rsync -aiv --delete ./config/config/niri/ ~/.config/niri/
-rsync -aiv --delete ./config/config/nvim/ ~/.config/nvim/
+rsync -aiv --delete ./config/config/helix/ ~/.config/helix/
 rsync -aiv --delete ./config/config/qt6ct/ ~/.config/qt6ct/
 rsync -aiv --delete ./config/config/swaync/ ~/.config/swaync/
 rsync -aiv --delete ./config/config/waybar/ ~/.config/waybar/
