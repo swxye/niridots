@@ -20,6 +20,8 @@ compinit
 
 prompt='[%B%F{magenta}%n%f%b@%B%F{cyan}%m%f%b %B%~%b] '
 
+alias hx='helix'
+alias cat='bat'
 alias ls='eza --grid -a'
 alias sudo='doas'
 alias sudoedit='doasedit'

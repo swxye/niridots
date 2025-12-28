@@ -137,8 +137,8 @@ window-rule {
 }
 
 environment {
-	EDITOR "nvim"
-	VISUAL "nvim"
+	EDITOR "helix"
+	VISUAL "helix"
 	QT_QPA_PLATFORM "wayland"
     QT_QPA_PLATFORMTHEME "qt6ct"
 	MOZ_ENABLE_WAYLAND "1"

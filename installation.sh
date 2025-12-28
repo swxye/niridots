@@ -35,7 +35,7 @@ cd
 rm -r ~/yay-bin
 
 echo "${GREEN}::${NC} ${BOLD}Installing the packages required by niridots...${NC}"
-sudo pacman -S --needed doas rsync eza ly niri nvim fastfetch xdg-desktop-portal-{gtk,gnome} qt6ct breeze gnome-themes-extra pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
+sudo pacman -S --needed doas rsync eza bat ly niri helix fastfetch xdg-desktop-portal-{gtk,gnome} qt6ct breeze gnome-themes-extra pipewire{,-{pulse,alsa,jack}} wireplumber bluez{,-utils} blueman brightnessctl kitty btop fuzzel waybar swww hyprlock swayidle swaync power-profiles-daemon ttf-jetbrains-mono ttf-nerd-fonts-symbols noto-fonts{,-{cjk,emoji,extra}} alsa-utils
 
 echo "${GREEN}::${NC} ${BOLD}Creating the doas config...${NC}"
 sudo touch /etc/doas.conf
